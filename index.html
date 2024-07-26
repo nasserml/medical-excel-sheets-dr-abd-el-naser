@@ -56,8 +56,13 @@
                     </div>
     
                     <div class="export-excel">
-                        <button onclick="exportToExcel()">Export To Excel</button>
+                        <button id="excelButton" onclick="exportToExcel()">Export To Excel</button>
                     </div>
+
+                    <div class="import-excel">
+                        <button id="importButton" onclick="importFromExcel()">Import from Excel</button>
+                    </div>
+
                 </div>
 
     
@@ -67,7 +72,33 @@
             
             <thead>
                 <tr class="heading">
+
                     <th>SL No</th>
+                    <th>Picture</th>
+                    <th>Patient ID</th>
+                    <th>Patient Name</th>
+                    <th>Date of Birth</th>
+                    <th>Allergies</th>
+                    <th>Weight (kg)</th>
+                    <th>Height (cm)</th>
+                    <th>ASA Classification</th>
+                    <th>Date and Time of Assessment</th>
+                    <th>Preoperative Diagnosis</th>
+                    <th>Discharge Status</th>
+                    <th>Postoperative Complications</th>
+                    <th>Nausea/Vomiting</th>
+                    <th>Respiratory Issues</th>
+                    <th>Cardiovascular Issues</th>
+                    <th>Others</th>
+                    <th>Follow-up Instructions</th>
+                    <th>Anesthesiologist Name</th>
+                    <th>Signature</th>
+                    <th>Date</th>
+                    <th>Action</th>
+
+
+                    <!-- old -->
+                    <!-- <th>SL No</th>
                     <th>Picture</th>
                     <th>Full Name</th>
                     <th>Age</th>
@@ -77,7 +108,7 @@
                     <th>Start Date</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>Action</th>
+                    <th>Action</th> -->
                 </tr>
             </thead>
 
@@ -218,7 +249,131 @@
 
                     </div>
 
+
                     <div class="inputFieldContainer">
+                        <div class="nameField">
+
+                            <div class="form-control">
+                                <label for="fNme">First Name:</label>
+                                <input type="text" name="" id="fName">
+                            </div>
+
+                            <div class="form-control">
+                                <label for="lNme">Last Name:</label>
+                                <input type="text" name="" id="lName">
+                            </div>
+
+                            
+
+                            
+
+                        </div>
+
+                        <div class="ageCityField">
+
+                            <div class="form-control">
+                                <label for="patientID">Patient ID:</label>
+                                <input type="text" name="" id="patientID">
+                            </div>
+
+                            <div class="form-control">
+                                <label for="dob">Date of Birth:</label>
+                                <input type="date" name="" id="dob">
+                            </div>
+
+                        </div>
+
+                        <div class="postSalary">
+
+                            <div class="form-control">
+                                <label for="allergies">Allergies:</label>
+                                <input type="text" name="" id="allergies">
+                            </div>
+
+                            <div class="form-control">
+                                <label for="weight">Weight (kg):</label>
+                                <input type="number" name="" id="weight">
+                            </div>
+
+                            
+
+                        </div>
+
+                        <div class="form-control">
+                            <label for="height">Height (cm):</label>
+                            <input type="number" name="" id="height">
+                        </div>
+
+                        <div class="form-control">
+                            <label for="asaClassification">ASA Classification:</label>
+                            <input type="text" name="" id="asaClassification">
+                        </div>
+
+                        <div class="form-control">
+                            <label for="assessmentDateTime">Date and Time of Assessment:</label>
+                            <input type="datetime-local" name="" id="assessmentDateTime">
+                        </div>
+
+                        <div class="form-control">
+                            <label for="preopDiagnosis">Preoperative Diagnosis:</label>
+                            <input type="text" name="" id="preopDiagnosis">
+                        </div>
+
+                        <div class="form-control">
+                            <label for="dischargeStatus">Discharge Status:</label>
+                            <input type="text" name="" id="dischargeStatus">
+                        </div>
+
+                        <div class="form-control">
+                            <label for="postopComplications">Postoperative Complications:</label>
+                            <input type="text" name="" id="postopComplications">
+                        </div>
+
+                        <div class="form-control">
+                            <label for="nauseaVomiting">Nausea/Vomiting:</label>
+                            <input type="text" name="" id="nauseaVomiting">
+                        </div>
+
+                        <div class="form-control">
+                            <label for="respiratoryIssues">Respiratory Issues:</label>
+                            <input type="text" name="" id="respiratoryIssues">
+                        </div>
+
+                        <div class="form-control">
+                            <label for="cardiovascularIssues">Cardiovascular Issues:</label>
+                            <input type="text" name="" id="cardiovascularIssues">
+                        </div>
+
+                        <div class="form-control">
+                            <label for="others">Others:</label>
+                            <input type="text" name="" id="others">
+                        </div>
+
+                        <div class="form-control">
+                            <label for="followUpInstructions">Follow-up Instructions:</label>
+                            <textarea name="" id="followUpInstructions" ></textarea>
+                        </div>
+
+                        <div class="form-control">
+                            <label for="anesthesiologistName">Anesthesiologist Name:</label>
+                            <input type="text" name="" id="anesthesiologistName">
+                        </div>
+
+                        <div class="form-control">
+                            <label for="signature">Signature:</label>
+                            <input type="text" name="" id="signature">
+                        </div>
+
+                        <div class="form-control">
+                            <label for="date">Date:</label>
+                            <input type="date" name="" id="date">
+                        </div>
+
+                    </div>
+
+
+                    <!-- old -->
+                    <!-- <div class="inputFieldContainer">
                         <div class="nameField">
 
                             <div class="form-control">
@@ -283,7 +438,7 @@
                         </div>
 
 
-                    </div>
+                    </div> -->
 
                 </form>
             </div>

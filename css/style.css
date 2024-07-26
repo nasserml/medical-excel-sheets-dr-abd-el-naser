@@ -122,6 +122,21 @@ header .addMemberBtn button, .popup header .closeBtn, .popup footer .sunmitBtn {
     background: var(--dark4);
     border-radius: 5px;
 }
+.add-export-buttons .import-excel button {
+    padding: 9px 14px;
+    color: var(--dark8);
+    font-size: 16px;
+    cursor: pointer;
+    pointer-events: auto;
+    outline: none;
+    border: 1px solid var(--dark6);
+    background: var(--dark4);
+    border-radius: 5px;
+}
+
+.import-excel button:hover{
+    background: var(--dark5);
+}
 
 
 
@@ -441,6 +456,25 @@ form .inputFieldContainer .postSalary{
 }
 
 
+.form-control textarea {
+    padding: 10px;
+    border: 1px solid var(--dark6);
+    color: var(--dark8);
+    background: var(--dark4);
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s;
+    width: 100%;
+    resize: vertical; /* Allow vertical resizing */
+    height: 100px; /* Set initial height */
+    max-height: 200px;
+}
+
+.form-control textarea:focus,
+.form-control textarea:valid {
+    border-color: var(--dark7);
+}
+
 
 
 
@@ -495,6 +529,32 @@ input::-webkit-outer-spin-button{
 
 
 
+.container {
+    /* ... */
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    overflow-y: hidden; /* Disable vertical scrolling for the container */
+    max-width: 95%; /* Adjust the max width as needed */
+}
+
+table {
+   
+    overflow-x: auto; /* Enable horizontal scrolling for the table */
+    overflow-y: auto; /* Disable vertical scrolling for the table */
+}
+
+table th, table td {
+    /* ... */
+    word-wrap: break-word; /* Wrap long words */
+    overflow-wrap: break-word; /* Wrap long words */
+}
+
+.popup {
+    /* ... */
+    max-width: 80%; /* Adjust max-width based on your content */
+    max-height: 90%; /* Adjust max-height based on your content */
+    overflow-x: auto; /* Disable horizontal scrolling for the popup */
+    overflow-y: auto; /* Disable vertical scrolling for the popup */
+}
 
 
 
