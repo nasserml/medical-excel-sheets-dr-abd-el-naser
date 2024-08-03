@@ -1,3 +1,6 @@
+
+
+
 var newMemberAddBtn = document.querySelector('.addMemberBtn'),
     darkBg =  document.querySelector('.dark_bg'),
     popupForm =document.querySelector('.popup'),
@@ -184,6 +187,10 @@ function showInfo() {
 
                     <button onclick="editInfo('${i}', '${staff.picture}', '${staff.fName}', '${staff.lName}', '${staff.patientIDVal}', '${staff.dobVal}', '${staff.allergiesVal}', '${staff.weightVal}', '${staff.heightVal}', '${staff.asaClassificationVal}', '${staff.assessmentDateTimeVal}', '${staff.preopDiagnosisVal}', '${staff.dischargeStatusVal}', '${staff.postopComplicationsVal}', '${staff.nauseaVomitingVal}', '${staff.respiratoryIssuesVal}', '${staff.cardiovascularIssuesVal}', '${staff.othersVal}', '${staff.followUpInstructionsVal}', '${staff.anesthesiologistNameVal}', '${staff.signatureVal}', '${staff.dateVal}')"><i class="fa-regular fa-pen-to-square"></i></button>
                     <button onclick="deleteInfo(${i})"><i class="fa-regular fa-trash-can"></i></button>
+                    <button onclick="downloadRowAsPDF(${i})">
+                        <i class="fa-regular fa-circle-down"></i>
+                    </button>
+                    
                 </td>
             </tr>`;
 
@@ -591,6 +598,69 @@ function importFromExcel() {
 
 displayIndexBtn();
 
+
+
+
+
+function downloadRowAsPDF(index) {
+    const rowData = getData[index];
+    if (rowData) {
+      const pdfContent = `
+        <h2>Patient Information</h2>
+        <p><strong>Patient ID:</strong> ${rowData.patientIDVal}</p>
+        <p><strong>Patient Name:</strong> ${rowData.fName} ${rowData.lName}</p>
+        <p><strong>Date of Birth:</strong> ${rowData.dobVal}</p>
+        <p><strong>Allergies:</strong> ${rowData.allergiesVal}</p>
+        <p><strong>Weight (kg):</strong> ${rowData.weightVal}</p>
+        <p><strong>Height (cm):</strong> ${rowData.heightVal}</p>
+        <p><strong>ASA Classification:</strong> ${rowData.asaClassificationVal}</p>
+        <p><strong>Date and Time of Assessment:</strong> ${rowData.assessmentDateTimeVal}</p>
+        <p><strong>Preoperative Diagnosis:</strong> ${rowData.preopDiagnosisVal}</p>
+        <p><strong>Discharge Status:</strong> ${rowData.dischargeStatusVal}</p>
+        <p><strong>Postoperative Complications:</strong> ${rowData.postopComplicationsVal}</p>
+        <p><strong>Nausea/Vomiting:</strong> ${rowData.nauseaVomitingVal}</p>
+        <p><strong>Respiratory Issues:</strong> ${rowData.respiratoryIssuesVal}</p>
+        <p><strong>Cardiovascular Issues:</strong> ${rowData.cardiovascularIssuesVal}</p>
+        <p><strong>Others:</strong> ${rowData.othersVal}</p>
+        <p><strong>Follow-up Instructions:</strong> ${rowData.followUpInstructionsVal}</p>
+        <p><strong>Anesthesiologist Name:</strong> ${rowData.anesthesiologistNameVal}</p>
+        <p><strong>Signature:</strong> ${rowData.signatureVal}</p>
+        <p><strong>Date:</strong> ${rowData.dateVal}</p>
+      `;
+  
+      const pdfWindow = window.open('', 'PatientInfoPDF'); 
+      pdfWindow.document.write(`
+        <html>
+          <head>
+            <title>Patient Information</title>
+            <style>
+              body {
+                font-family: sans-serif;
+              }
+              h2 {
+                text-align: center;
+              }
+              p {
+                margin-bottom: 5px;
+              }
+            </style>
+          </head>
+          <body>
+            ${pdfContent}
+          </body>
+        </html>
+      `);
+  
+      pdfWindow.document.close(); // Important to close the document
+  
+      // Automatically trigger printing and download
+      pdfWindow.focus();
+      pdfWindow.print();
+      pdfWindow.document.execCommand('SaveAs', false, `patient_info_${rowData.patientIDVal}.pdf`); 
+    } else {
+      console.error('Invalid row index for PDF generation.');
+    }
+  }
 
 
 
